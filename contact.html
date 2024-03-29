@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact form</title>
+  <style>
+    body {
+    margin: 0;
+    padding: 0;
+    background-image: url('https://images.unsplash.com/photo-1579546928686-286c9fbde1ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGlnaHQlMjBjb2xvciUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60');
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto; 
+    margin-top: 30px;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center vertically and horizontally */
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+input[type="text"]:invalid {
+    border-color: red;
+}
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0px 0px 5px rgba(76, 175, 80, 0.7);
+}
+.btn{
+    width: 100%;
+    padding: 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+  </style>
+  <script src="https://smtpjs.com/v3/smtp.js">
+  </script>
+</head>
+<body>
+  <body background="https://images.unsplash.com/photo-1579546928686-286c9fbde1ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGlnaHQlMjBjb2xvciUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60">
+    <div class = "container">
+    <form onsubmit="sendEmail(); reset(); return false">
+      <h2> Feel Free to contact us! </h2>
+      <input type="text" id="name" placeholder="Your Full-Name" required>
+      <input type="text" id="phone" placeholder="Contact No" pattern ="[0-9]{10}"required>
+      <input type="email" id="email" placeholder="Your Email" pattern="[a-zA-Z0-9@]+@[^@]+\.[a-zA-Z]{2,6}"required>
+      <input type="text" id="subject" placeholder="Subject" required>  
+      <textarea id ="message" rows="10" placeholder="Tell us your query! We would be happy to help you!"></textarea>
+      <button type="submit" class="btn"><b>Submit</b></button>
+      </button>
+  </div>
+</form>
+<script>
+    function sendEmail(){
+    let name= document.getElementById("name").value;
+    let contact_no= document.getElementById("phone").value;
+    let email= document.getElementById("email").value;
+    let subject= document.getElementById("subject").value;
+    let message= document.getElementById("message").value;
+    let body= "Name:" + name + "<br/> Contact No:" + contact_no + "<br/> Mail ID: " + email + "<br/> Message:" + message;
+}
+</script>
+</body>
+</html>
